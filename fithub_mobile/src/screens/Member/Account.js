@@ -87,7 +87,7 @@ export default function Account({ navigation }) {
                 name="user"
                 size={24}
                 color="black"
-                style={{ marginRight: 30, color: "#0d6efd" }}
+                style={{ marginRight: 30, color: "#dc3546" }}
               />
               <Text style={styles.buttonText}>Account Information</Text>
             </View>
@@ -104,7 +104,7 @@ export default function Account({ navigation }) {
                 name="unlock"
                 size={24}
                 color="black"
-                style={{ marginRight: 30, color: "#0d6efd" }}
+                style={{ marginRight: 30, color: "#dc3546" }}
               />
               <Text style={styles.buttonText}>Change Password</Text>
             </View>
@@ -125,7 +125,7 @@ export default function Account({ navigation }) {
                 name="compass"
                 size={24}
                 color="black"
-                style={{ marginRight: 30, color: "#0d6efd" }}
+                style={{ marginRight: 30, color: "#dc3546" }}
               />
               <Text style={styles.buttonText}>Emergency</Text>
             </View>
@@ -146,7 +146,7 @@ export default function Account({ navigation }) {
                 name="users"
                 size={24}
                 color="black"
-                style={{ marginRight: 30, color: "#0d6efd" }}
+                style={{ marginRight: 30, color: "#dc3546" }}
               />
               <Text style={styles.buttonText}>Connects</Text>
             </View>
@@ -160,7 +160,7 @@ export default function Account({ navigation }) {
                 name="chevrons-left"
                 size={24}
                 color="black"
-                style={{ marginRight: 30, color: "#0d6efd" }}
+                style={{ marginRight: 30, color: "#dc3546" }}
               />
               <Text style={styles.buttonText}>Logout</Text>
             </View>
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     height: 70,
     borderRadius: 100,
     borderWidth: 2,
-    borderColor: "#0d6efd",
+    borderColor: "#dc3546",
   },
   title: {
     fontSize: 20,

@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     color: "grey",
   },
   buttonContainer: {
-    backgroundColor: "#0d6efd",
+    backgroundColor: "#dc3546",
     borderRadius: 10,
     padding: 10,
     alignItems: "center",
@@ -50,7 +50,7 @@ export const styles = StyleSheet.create({
     marginRight: 20,
   },
   inputButton: {
-    backgroundColor: "#0d6efd",
+    backgroundColor: "#dc3546",
     width: "100%",
     marginTop: 10,
     marginBottom: 20,
