@@ -11,10 +11,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $gym_members = User::where('role_id', 3)->count();
-        $staffs = User::where('role_id', 2)->count();
-        $feedbacks = Feedback::count();
+        $gym_members_count = User::where('role_id', 3)->count();
+        $staffs_count = User::where('role_id', 2)->count();
+        $feedbacks_count = Feedback::count();
+        $gym_members = User::where('role_id', 3)->limit(10)->get();
 
-        return view('admin.dashboard.index', ['gym_members' => $gym_members, 'staffs' => $staffs, 'feedbacks' => $feedbacks]);
+        return view('admin.dashboard.index', compact('gym_members_count', 'staffs_count', 'feedbacks_count', 'gym_members'));
     }
 }

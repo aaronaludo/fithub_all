@@ -29,37 +29,28 @@
                                 <table class="table table-hover">
                                     <thead class="table-light">
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Contact Number</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Is Read</th>
+                                        <th>Created Date</th>
+                                        <th>Updated Date</th>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>John Doe</td>
-                                            <td>Admin</td>
-                                            <td>+123456789</td>
-                                            <td>Active</td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="action-button"><a href="#" title="View"><i class="fa-solid fa-eye"></i></a></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jane Smith</td>
-                                            <td>Manager</td>
-                                            <td>+987654321</td>
-                                            <td>Inactive</td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="action-button"><a href="#" title="View"><i class="fa-solid fa-eye"></i></a></div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach($feedbacks as $item)
+                                            <tr>
+                                                <td>{{ $item->id }}</td>
+                                                <td>{{ $item->title }}</td>
+                                                <td>{{ $item->description }}</td>
+                                                <td>{{ $item->isadminread ? 'Yes' : 'No'}}</td>
+                                                <td>{{ $item->created_at }}</td>
+                                                <td>{{ $item->updated_at }}</td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <div class="action-button"><a href="#" title="View"><i class="fa-solid fa-eye"></i></a></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

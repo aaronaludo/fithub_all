@@ -46,8 +46,14 @@ Route::middleware(['auth:admin'])->group(function () {
 
     Route::get('/admin/gym-management', [GymManagement::class, 'index'])->name('admin.gym-management.index');
     Route::get('/admin/schedule', [Schedule::class, 'index'])->name('admin.gym-management.schedule');
-    Route::get('/admin/members', [MemberData::class, 'index'])->name('admin.gym-management.members');
     
+    Route::get('/admin/members', [MemberData::class, 'index'])->name('admin.gym-management.members');
+    Route::get('/admin/members/create', [MemberData::class, 'create'])->name('admin.gym-management.members.create');
+    Route::get('/admin/members/{id}', [MemberData::class, 'view'])->name('admin.gym-management.members.view');
+    Route::post('/admin/members', [MemberData::class, 'store'])->name('admin.gym-management.members.store');
+    Route::get('/admin/members/{id}/edit', [MemberData::class, 'edit'])->name('admin.gym-management.members.edit');
+    Route::put('/admin/members/{id}', [MemberData::class, 'update'])->name('admin.gym-management.members.update');
+
     Route::get('/admin/online-registrations', [OnlineRegistration::class, 'index'])->name('admin.online-registrations.index');
     Route::get('/admin/reports', [Report::class, 'index'])->name('admin.reports.index');
 

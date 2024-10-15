@@ -16,12 +16,12 @@ class UsersTableSeeder extends Seeder
         User::create([
             'role_id' => 3,
             'status_id' => 2,
-            'first_name' => 'User',
+            'first_name' => 'Member',
             'last_name' => 'Test',
             'address' => 'Taytay',
             'phone_number' => '09557735516',
-            'email' => 'passenger@gmail.com',
-            'password' => bcrypt('passenger123')
+            'email' => 'member@gmail.com',
+            'password' => bcrypt('member123')
         ]);
         User::create([
             'role_id' => 2,
@@ -30,8 +30,8 @@ class UsersTableSeeder extends Seeder
             'last_name' => 'Test',
             'address' => 'Cainta',
             'phone_number' => '09557735517',
-            'email' => 'driver@gmail.com',
-            'password' => bcrypt('driver123')
+            'email' => 'staff@gmail.com',
+            'password' => bcrypt('staff123')
         ]);
         User::create([
             'role_id' => 1,

@@ -15,7 +15,7 @@
                             <div class="tile-heading">Total Gym Members</div>
                             <div class="tile-body">
                                 <i class="fa-regular fa-user"></i>
-                                <h2 class="float-end">{{ $gym_members }}</h2>
+                                <h2 class="float-end">{{ $gym_members_count }}</h2>
                             </div>
                             <div class="tile-footer"><a href="#">View more...</a></div>
                         </div>
@@ -25,7 +25,7 @@
                             <div class="tile-heading">Total Staffs</div>
                             <div class="tile-body">
                                 <i class="fa-regular fa-heart"></i>
-                                <h2 class="float-end">{{ $staffs }}</h2>
+                                <h2 class="float-end">{{ $staffs_count }}</h2>
                             </div>
                             <div class="tile-footer"><a href="#">View more...</a></div>
                         </div>
@@ -34,8 +34,8 @@
                         <div class="tile tile-primary">
                             <div class="tile-heading">Total Feedbacks</div>
                             <div class="tile-body">
-                                <i class="fa-regular fa-user-plus"></i>
-                                <h2 class="float-end">{{ $feedbacks }}</h2>
+                                <i class="fa-regular fa-message"></i>
+                                <h2 class="float-end">{{ $feedbacks_count }}</h2>
                             </div>
                             <div class="tile-footer"><a href="#">View more...</a></div>
                         </div>
@@ -52,36 +52,28 @@
                                     <thead class="table-light">
                                         <th>ID</th>
                                         <th>Name</th>
-                                        <th>Membership Type</th>
-                                        <th>Contact Number</th>
-                                        <th>Status</th>
+                                        <th>Phone Number</th>
+                                        <th>Email</th>
+                                        <th>Created Date</th>
+                                        <th>Updated Date</th>
                                         <th>Actions</th>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>John Doe</td>
-                                            <td>Premium</td>
-                                            <td>+123456789</td>
-                                            <td>Active</td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="action-button"><a href="#" title="View"><i class="fa-solid fa-eye"></i></a></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jane Smith</td>
-                                            <td>Standard</td>
-                                            <td>+987654321</td>
-                                            <td>Inactive</td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="action-button"><a href="#" title="View"><i class="fa-solid fa-eye"></i></a></div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach($gym_members as $item)
+                                            <tr>
+                                                <td>1</td>
+                                                <td>{{ $item->first_name }} {{ $item->last_name }}</td>
+                                                <td>{{ $item->phone_number }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->created_at }}</td>
+                                                <td>{{ $item->updated_at }}</td>
+                                                <td>
+                                                    <div class="d-flex">
+                                                        <div class="action-button"><a href="#" title="View"><i class="fa-solid fa-eye"></i></a></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
