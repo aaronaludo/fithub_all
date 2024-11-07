@@ -61,7 +61,7 @@
                                     <tbody>
                                         @foreach($gym_members as $item)
                                             <tr>
-                                                <td>1</td>
+                                                <td>{{ $item->id }}</td>
                                                 <td>{{ $item->first_name }} {{ $item->last_name }}</td>
                                                 <td>{{ $item->phone_number }}</td>
                                                 <td>{{ $item->email }}</td>

@@ -95,7 +95,7 @@ body {
 }
 #menu > li {
   position: relative;
-  border-bottom: 1px solid #2b3642;
+  border-bottom: 1px solid #754e4e;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -125,14 +125,14 @@ body {
 }
 #menu li li a:hover {
   color: #ffffff;
-  background-color: #242d37;
+  background-color: #372924;
 }
 #menu > li > a:hover {
   background-color: #444444;
 }
 #menu li li > a.active {
-  color: #0b91d2;
-  background-color: #242d37;
+  color: #ff9797;
+  background-color: #3f1e1e;
 }
 #menu li a[data-bs-toggle="collapse"]:after {
   font: var(--fa-font-solid);
@@ -167,11 +167,11 @@ body {
   margin-right: 8px;
 }
 #menu > li > a.active {
-  color: #0b91d2;
-  background-color: #171b21;
+  color: #a93b3b;
+  background-color: #270707;
 }
 #menu > li > ul {
-  background-color: #293141;
+  background-color: #483131;
 }
 #menu li li a {
   padding-left: 20px;

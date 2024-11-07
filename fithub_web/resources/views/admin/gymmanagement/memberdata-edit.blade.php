@@ -11,7 +11,7 @@
                 <div class="box">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form action="{{ route('admin.gym-management.members.update', $gym_member->id) }}" method="POST">
+                            <form action="{{ route('admin.gym-management.members.update', $gym_member->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 @if ($errors->any())

@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css') }}" />
     <title>@yield('title')</title>
+    @yield('styles')
 </head>
 <body>
     <div id="wrapper">
@@ -58,24 +59,43 @@
                     </a>
                 </li>
                 <li>
-                    <a class="collapsed {{ Request::route()->getName() === 'admin.gym-management.index' || Request::route()->getName() === 'admin.gym-management.schedule' || Request::route()->getName() === 'admin.gym-management.members' ? 'active' : '' }}" data-bs-toggle="collapse" href="#gym-management-menu" role="button" aria-expanded="{{ Request::route()->getName() === 'admin.gym-management.index' || Request::route()->getName() === 'admin.gym-management.schedule' || Request::route()->getName() === 'admin.gym-management.members' ? 'true' : 'false' }}" aria-controls="gym-management-menu">
+                    <a class="collapsed {{ Request::route()->getName() === 'admin.gym-management.index' || Request::route()->getName() === 'admin.gym-management.schedules' || Request::route()->getName() === 'admin.gym-management.members' ? 'active' : '' }}" data-bs-toggle="collapse" href="#gym-management-menu" role="button" aria-expanded="{{ Request::route()->getName() === 'admin.gym-management.index' || Request::route()->getName() === 'admin.gym-management.schedules' || Request::route()->getName() === 'admin.gym-management.members' ? 'true' : 'false' }}" aria-controls="gym-management-menu">
                         <i class="fa-solid fa-dumbbell"></i> Gym Management
                     </a>
-                    <ul id="gym-management-menu" class="collapse {{ Request::route()->getName() === 'admin.gym-management.schedule' || Request::route()->getName() === 'admin.gym-management.members' ? 'show' : '' }}">
-                        <li><a href="{{ route('admin.gym-management.schedule') }}" class="{{ Request::route()->getName() === 'admin.gym-management.schedule' ? 'active' : '' }}">Schedules</a></li>
+                    <ul id="gym-management-menu" class="collapse {{ Request::route()->getName() === 'admin.gym-management.schedules' || Request::route()->getName() === 'admin.gym-management.members' ? 'show' : '' }}">
+                        <li><a href="{{ route('admin.gym-management.schedules') }}" class="{{ Request::route()->getName() === 'admin.gym-management.schedules' ? 'active' : '' }}">Schedules</a></li>
                         <li><a href="{{ route('admin.gym-management.members') }}" class="{{ Request::route()->getName() === 'admin.gym-management.members' ? 'active' : '' }}">Members Data</a></li>
                     </ul>
                 </li>
                                            
                 <li>
-                    <a class="collapsed {{ Request::route()->getName() === 'admin.staff-account-management.index' || Request::route()->getName() === 'admin.staff-account-management.attendances' ? 'active' : '' }}" data-bs-toggle="collapse" href="#staff-account-management-menu" role="button" aria-expanded="{{ Request::route()->getName() === 'admin.staff-account-management.index' || Request::route()->getName() === 'admin.staff-account-management.attendances' ? 'true' : 'false' }}" aria-controls="staff-account-management-menu">
+                    <a class="collapsed {{ 
+                        in_array(Request::route()->getName(), [
+                            'admin.staff-account-management.index', 
+                            'admin.staff-account-management.attendances', 
+                            'admin.staff-account-management.memberships'
+                        ]) ? 'active' : '' }}" 
+                        data-bs-toggle="collapse" href="#staff-account-management-menu" 
+                        role="button" aria-expanded="{{ 
+                        in_array(Request::route()->getName(), [
+                            'admin.staff-account-management.index', 
+                            'admin.staff-account-management.attendances', 
+                            'admin.staff-account-management.memberships'
+                        ]) ? 'true' : 'false' }}" 
+                        aria-controls="staff-account-management-menu">
                         <i class="fa-solid fa-users"></i> Staff Account Management
                     </a>
-                    <ul id="staff-account-management-menu" class="collapse {{ Request::route()->getName() === 'admin.staff-account-management.index' || Request::route()->getName() === 'admin.staff-account-management.attendances' ? 'show' : '' }}">
+                    <ul id="staff-account-management-menu" class="collapse {{ 
+                        in_array(Request::route()->getName(), [
+                            'admin.staff-account-management.index', 
+                            'admin.staff-account-management.attendances', 
+                            'admin.staff-account-management.memberships'
+                        ]) ? 'show' : '' }}">
                         <li><a href="{{ route('admin.staff-account-management.index') }}" class="{{ Request::route()->getName() === 'admin.staff-account-management.index' ? 'active' : '' }}">Overview</a></li>
                         <li><a href="{{ route('admin.staff-account-management.attendances') }}" class="{{ Request::route()->getName() === 'admin.staff-account-management.attendances' ? 'active' : '' }}">Attendances</a></li>
+                        <li><a href="{{ route('admin.staff-account-management.memberships') }}" class="{{ Request::route()->getName() === 'admin.staff-account-management.memberships' ? 'active' : '' }}">Memberships</a></li>
                     </ul>
-                </li>
+                </li>                
 
                 <li>
                     <a href="{{ route('admin.reports.index') }}" class="{{ request()->routeIs('admin.reports.index') ? 'active' : '' }}">
@@ -99,6 +119,8 @@
         </div>
         <footer>Copyright. &copy; 2024 All Rights Reserved.</footer>
     </div>
+
+    @yield('scripts')
     <script type="text/javascript" src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
 </body>

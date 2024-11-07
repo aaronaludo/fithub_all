@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-12 d-flex justify-content-between">
                 <div><h2 class="title">Attendances</h2></div>
-                {{-- <div class="d-flex align-items-center"><a class="btn btn-danger" href="#"><i class="fa-solid fa-plus"></i>&nbsp;&nbsp;&nbsp;Add</a></div> --}}
+                <div class="d-flex align-items-center"><a class="btn btn-danger" href="{{ route('admin.staff-account-management.attendances.scanner') }}"><i class="fa-solid fa-qrcode"></i>&nbsp;&nbsp;&nbsp;Scanner</a></div>
             </div>
             <div class="col-lg-12 mb-20">
                 <div class="box">

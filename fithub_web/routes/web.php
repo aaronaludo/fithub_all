@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\New\StaffAccountManagementController as StaffAcco
 use App\Http\Controllers\Admin\New\ScheduleController as Schedule;
 use App\Http\Controllers\Admin\New\MemberDataController as MemberData;
 use App\Http\Controllers\Admin\New\AttendanceController as Attendance;
+use App\Http\Controllers\Admin\New\MembershipController as Membership;
 
 Route::get('/', function () {
     return redirect('/admin/login');
@@ -45,8 +46,23 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/feedbacks', [Feedback::class, 'index'])->name('admin.feedbacks.index');
 
     Route::get('/admin/gym-management', [GymManagement::class, 'index'])->name('admin.gym-management.index');
-    Route::get('/admin/schedule', [Schedule::class, 'index'])->name('admin.gym-management.schedule');
-    
+
+    Route::get('/admin/memberships', [Membership::class, 'index'])->name('admin.staff-account-management.memberships');
+    Route::get('/admin/memberships/create', [Membership::class, 'create'])->name('admin.staff-account-management.memberships.create');
+    Route::get('/admin/memberships/{id}', [Membership::class, 'view'])->name('admin.staff-account-management.memberships.view');
+    Route::post('/admin/memberships', [Membership::class, 'store'])->name('admin.staff-account-management.memberships.store');
+    Route::get('/admin/memberships/{id}/edit', [Membership::class, 'edit'])->name('admin.staff-account-management.memberships.edit');
+    Route::put('/admin/memberships/{id}', [Membership::class, 'update'])->name('admin.staff-account-management.memberships.update');
+    Route::delete('/admin/memberships', [Membership::class, 'delete'])->name('admin.staff-account-management.memberships.delete');
+
+    Route::get('/admin/schedules', [Schedule::class, 'index'])->name('admin.gym-management.schedules');
+    Route::get('/admin/schedules/create', [Schedule::class, 'create'])->name('admin.gym-management.schedules.create');
+    Route::get('/admin/schedules/{id}', [Schedule::class, 'view'])->name('admin.gym-management.schedules.view');
+    Route::post('/admin/schedules', [Schedule::class, 'store'])->name('admin.gym-management.schedules.store');
+    Route::get('/admin/schedules/{id}/edit', [Schedule::class, 'edit'])->name('admin.gym-management.schedules.edit');
+    Route::put('/admin/schedules/{id}', [Schedule::class, 'update'])->name('admin.gym-management.schedules.update');
+    Route::delete('/admin/schedules', [Schedule::class, 'delete'])->name('admin.gym-management.schedules.delete');
+
     Route::get('/admin/members', [MemberData::class, 'index'])->name('admin.gym-management.members');
     Route::get('/admin/members/create', [MemberData::class, 'create'])->name('admin.gym-management.members.create');
     Route::get('/admin/members/{id}', [MemberData::class, 'view'])->name('admin.gym-management.members.view');
@@ -58,7 +74,10 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/reports', [Report::class, 'index'])->name('admin.reports.index');
 
     Route::get('/admin/staff-account-management', [StaffAccountManagement::class, 'index'])->name('admin.staff-account-management.index');
+    
     Route::get('/admin/staff-account-management/attendances', [Attendance::class, 'index'])->name('admin.staff-account-management.attendances');
+    Route::get('/admin/staff-account-management/attendances/scanner', [Attendance::class, 'scanner'])->name('admin.staff-account-management.attendances.scanner');
+    Route::post('/admin/staff-account-management/attendances/scanner', [Attendance::class, 'fetchScanner'])->name('admin.staff-account-management.attendances.scanner.fetch');
 
     Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.users.index');
     Route::get('/admin/users/search', [AdminUserController::class, 'search'])->name('admin.users.search');

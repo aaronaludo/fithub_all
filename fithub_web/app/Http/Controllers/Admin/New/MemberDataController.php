@@ -10,11 +10,11 @@ class MemberDataController extends Controller
 {
     public function index(Request $request)
     {
-        $searchEmail = $request->email;
+        $search = $request->email;
     
         $gym_members = User::where('role_id', 3)
-            ->when($searchEmail, function ($query, $searchEmail) {
-                return $query->where('email', 'like', "%{$searchEmail}%");
+            ->when($search, function ($query, $search) {
+                return $query->where('email', 'like', "%{$search}%");
             })
             ->get();
     
