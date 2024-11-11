@@ -52,6 +52,9 @@ class MembershipController extends Controller
         $data->name = $request->name;
         $data->currency = $request->currency;
         $data->price = $request->price;
+        $data->year = $request->year;
+        $data->month = $request->month;
+        $data->week = $request->week;
         $data->save();
 
         return redirect()->route('admin.staff-account-management.memberships')->with('success', 'Membership added successfully');
@@ -69,6 +72,9 @@ class MembershipController extends Controller
         $data->name = $request->name;
         $data->currency = $request->currency;
         $data->price = $request->price;
+        $data->year = $request->year;
+        $data->month = $request->month;
+        $data->week = $request->week;
         $data->save();
 
         return redirect()->route('admin.staff-account-management.memberships')->with('success', 'Membership updated successfully');

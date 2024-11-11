@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\New\ScheduleController as Schedule;
 use App\Http\Controllers\Admin\New\MemberDataController as MemberData;
 use App\Http\Controllers\Admin\New\AttendanceController as Attendance;
 use App\Http\Controllers\Admin\New\MembershipController as Membership;
+use App\Http\Controllers\Admin\New\UserMembershipController as UserMembership;
 
 Route::get('/', function () {
     return redirect('/admin/login');
@@ -54,6 +55,10 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/admin/memberships/{id}/edit', [Membership::class, 'edit'])->name('admin.staff-account-management.memberships.edit');
     Route::put('/admin/memberships/{id}', [Membership::class, 'update'])->name('admin.staff-account-management.memberships.update');
     Route::delete('/admin/memberships', [Membership::class, 'delete'])->name('admin.staff-account-management.memberships.delete');
+
+    Route::get('/admin/user-memberships', [UserMembership::class, 'index'])->name('admin.staff-account-management.user-memberships');
+    Route::post('/admin/user-memberships/isapprove', [UserMembership::class, 'isapprove'])->name('admin.staff-account-management.user-memberships.isapprove');
+    Route::get('/admin/user-memberships/{id}', [UserMembership::class, 'view'])->name('admin.staff-account-management.user-memberships.view');
 
     Route::get('/admin/schedules', [Schedule::class, 'index'])->name('admin.gym-management.schedules');
     Route::get('/admin/schedules/create', [Schedule::class, 'create'])->name('admin.gym-management.schedules.create');

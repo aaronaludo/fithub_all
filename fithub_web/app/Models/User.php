@@ -51,7 +51,7 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function driver_information(){
-        return $this->hasOne(DriverInformation::class, 'driver_id');
+    public function usermemberships(){
+        return $this->hasMany(UserMembership::class);
     }
 }

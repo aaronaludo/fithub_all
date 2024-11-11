@@ -64,7 +64,7 @@
         .then(response => response.json())
         .then(data => {
             console.log(data.data);
-            alert(data.data.email);    
+            alert(data.data);    
         })
         .catch(error => {
             console.error(error);

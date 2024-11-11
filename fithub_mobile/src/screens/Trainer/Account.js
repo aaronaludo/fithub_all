@@ -25,7 +25,7 @@ export default function Account({ navigation }) {
 
   const getUserData = async () => {
     try {
-      const storedUserData = await AsyncStorage.getItem("MemberData");
+      const storedUserData = await AsyncStorage.getItem("TrainerData");
       if (storedUserData) {
         const parsedUserData = JSON.parse(storedUserData);
         setUserData(parsedUserData);
@@ -36,14 +36,14 @@ export default function Account({ navigation }) {
   };
 
   const handleLogout = async () => {
-    // await AsyncStorage.removeItem("MemberToken");
-    // await AsyncStorage.removeItem("MemberData");
-    // navigation.navigate("Member Login");
+    // await AsyncStorage.removeItem("TrainerToken");
+    // await AsyncStorage.removeItem("TrainerData");
+    // navigation.navigate("Trainer Login");
     try {
-      const token = await AsyncStorage.getItem("MemberToken");
+      const token = await AsyncStorage.getItem("TrainerToken");
       if (token) {
         const response = await axios.get(
-          `${config.API_URL}/api/members/logout`,
+          `${config.API_URL}/api/trainers/logout`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -51,9 +51,9 @@ export default function Account({ navigation }) {
           }
         );
         if (response.data.message === "Successfully logged out") {
-          await AsyncStorage.removeItem("MemberToken");
-          await AsyncStorage.removeItem("MemberData");
-          navigation.navigate("Member Login");
+          await AsyncStorage.removeItem("TrainerToken");
+          await AsyncStorage.removeItem("TrainerData");
+          navigation.navigate("Trainer Login");
         } else {
           console.error("Logout failed:", response.data.message);
         }
@@ -79,7 +79,7 @@ export default function Account({ navigation }) {
       <View style={styles.buttonsContainer}>
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={() => navigation.navigate("Member Account Information")}
+          onPress={() => navigation.navigate("Trainer Account Information")}
         >
           <View style={styles.titleContainer}>
             <View style={{ flexDirection: "row" }}>
@@ -96,7 +96,7 @@ export default function Account({ navigation }) {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={() => navigation.navigate("Member Change Password")}
+          onPress={() => navigation.navigate("Trainer Change Password")}
         >
           <View style={styles.titleContainer}>
             <View style={{ flexDirection: "row" }}>
@@ -113,7 +113,7 @@ export default function Account({ navigation }) {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonContainer} 
-          onPress={() => navigation.navigate("Member BMI Calculator")}
+          onPress={() => navigation.navigate("Trainer BMI Calculator")}
           >
           <View style={styles.titleContainer}>
             <View style={{ flexDirection: "row" }}>
@@ -128,27 +128,10 @@ export default function Account({ navigation }) {
             <Feather name="arrow-right-circle" size={24} color="black" />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttonContainer} 
-          onPress={() => navigation.navigate("Member Membership")}
-          >
-          <View style={styles.titleContainer}>
-            <View style={{ flexDirection: "row" }}>
-              <Feather
-                name="check-square"
-                size={24}
-                color="black"
-                style={{ marginRight: 30, color: "#dc3546" }}
-              />
-              <Text style={styles.buttonText}>Membership</Text>
-            </View>
-            <Feather name="arrow-right-circle" size={24} color="black" />
-          </View>
-        </TouchableOpacity>
         {/* <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() =>
-            navigation.navigate("Member Emergency", {
+            navigation.navigate("Trainer Emergency", {
               result: "",
             })
           }
@@ -169,7 +152,7 @@ export default function Account({ navigation }) {
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() =>
-            navigation.navigate("Member Connect", {
+            navigation.navigate("Trainer Connect", {
               result: "",
             })
           }

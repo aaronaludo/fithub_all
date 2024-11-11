@@ -67,6 +67,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Member\MemberAuthController;
 use App\Http\Controllers\Member\MemberAccountController;
+use App\Http\Controllers\Member\MemberMembershipController;
+
+use App\Http\Controllers\Trainer\TrainerAuthController;
+use App\Http\Controllers\Trainer\TrainerAccountController;
 
 Route::prefix('members')->group(function () {
     Route::get('/test', [MemberAuthController::class, 'test'])->name('members.test');
@@ -74,11 +78,26 @@ Route::prefix('members')->group(function () {
     Route::post('/register', [MemberAuthController::class, 'register'])->name('members.register');
 });
 
+Route::prefix('trainers')->group(function () {
+    Route::get('/test', [TrainerAuthController::class, 'test'])->name('trainers.test');
+    Route::post('/login', [TrainerAuthController::class, 'login'])->name('trainers.login');
+    Route::post('/register', [TrainerAuthController::class, 'register'])->name('trainers.register');
+});
+
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::prefix('members')->group(function () {
+        Route::get('/memberships', [MemberMembershipController::class, 'index'])->name('members.membership.index');
+        Route::post('/memberships/checkout', [MemberMembershipController::class, 'checkout'])->name('members.membership.checkout');
         Route::get('/logout', [MemberAuthController::class, 'logout'])->name('members.logout');
         
         Route::post('/edit-profile', [MemberAccountController::class, 'editProfile'])->name('members.edit-profile');
         Route::post('/change-password', [MemberAccountController::class, 'changePassword'])->name('members.change-password');
+    });
+
+    Route::prefix('trainers')->group(function () {
+        Route::get('/logout', [TrainerAuthController::class, 'logout'])->name('trainers.logout');
+        
+        Route::post('/edit-profile', [TrainerAccountController::class, 'editProfile'])->name('trainers.edit-profile');
+        Route::post('/change-password', [TrainerAccountController::class, 'changePassword'])->name('trainers.change-password');
     });
 });

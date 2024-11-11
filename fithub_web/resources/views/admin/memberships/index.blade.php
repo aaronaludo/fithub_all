@@ -40,6 +40,9 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Price</th>
+                                        <th>Year</th>
+                                        <th>Month</th>
+                                        <th>Week</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>Actions</th>
@@ -50,6 +53,9 @@
                                                 <td>{{ $item->id }}</td>
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->price }} ({{ $item->currency }})</td>
+                                                <td>{{ $item->year ?? '0' }}</td>
+                                                <td>{{ $item->month ?? '0' }}</td>
+                                                <td>{{ $item->week ?? '0' }}</td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>{{ $item->updated_at }}</td>
                                                 <td>

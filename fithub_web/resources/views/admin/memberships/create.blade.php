@@ -39,7 +39,25 @@
                                     <div class="col-lg-10 col-sm-12 d-flex align-items-center">
                                         <input type="number" class="form-control" id="price" name="price" required/>
                                     </div>
+                                </div>      
+                                <div class="mb-3 row">
+                                    <label for="year" class="col-sm-12 col-lg-2 col-form-label">Year: </label>
+                                    <div class="col-lg-10 col-sm-12 d-flex align-items-center">
+                                        <input type="number" class="form-control" id="year" name="year" value="0" required/>
+                                    </div>
                                 </div>       
+                                <div class="mb-3 row">
+                                    <label for="month" class="col-sm-12 col-lg-2 col-form-label">Month: </label>
+                                    <div class="col-lg-10 col-sm-12 d-flex align-items-center">
+                                        <input type="number" class="form-control" id="month" name="month" value="0" required/>
+                                    </div>
+                                </div>       
+                                <div class="mb-3 row">
+                                    <label for="week" class="col-sm-12 col-lg-2 col-form-label">Week: </label>
+                                    <div class="col-lg-10 col-sm-12 d-flex align-items-center">
+                                        <input type="number" class="form-control" id="week" name="week" value="0" required/>
+                                    </div>
+                                </div>        
                                 <div class="d-flex justify-content-center mt-5 mb-4">
                                     <button class="btn btn-danger">Submit</button>
                                 </div>

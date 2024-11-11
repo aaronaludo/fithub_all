@@ -94,6 +94,7 @@
                         <li><a href="{{ route('admin.staff-account-management.index') }}" class="{{ Request::route()->getName() === 'admin.staff-account-management.index' ? 'active' : '' }}">Overview</a></li>
                         <li><a href="{{ route('admin.staff-account-management.attendances') }}" class="{{ Request::route()->getName() === 'admin.staff-account-management.attendances' ? 'active' : '' }}">Attendances</a></li>
                         <li><a href="{{ route('admin.staff-account-management.memberships') }}" class="{{ Request::route()->getName() === 'admin.staff-account-management.memberships' ? 'active' : '' }}">Memberships</a></li>
+                        <li><a href="{{ route('admin.staff-account-management.user-memberships') }}" class="{{ Request::route()->getName() === 'admin.staff-account-management.user-memberships' ? 'active' : '' }}">User Memberships</a></li>
                     </ul>
                 </li>                
 

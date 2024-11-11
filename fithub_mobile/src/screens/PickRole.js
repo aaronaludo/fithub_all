@@ -16,9 +16,9 @@ const Login = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.inputButton}
-          onPress={() => navigation.navigate("Driver Login")}
+          onPress={() => navigation.navigate("Trainer Login")}
         >
-          <Text style={styles.inputButtonText}>Driver</Text>
+          <Text style={styles.inputButtonText}>Trainer</Text>
         </TouchableOpacity>
       </View>
     </>

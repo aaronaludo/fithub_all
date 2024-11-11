@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Member;
+namespace App\Http\Controllers\Trainer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,17 +8,17 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
-class MemberAuthController extends Controller
+class TrainerAuthController extends Controller
 {
     public function test(){
-        return response()->json(['message' => 'member test']);
+        return response()->json(['message' => 'trainer test']);
     }
 
     public function index(){
         $user = User::find(auth()->user()->id);
 
-        if ($user->role_id != 3) {
-            return response()->json(['message' => 'Member account only'], 401);
+        if ($user->role_id != 5) {
+            return response()->json(['message' => 'Trainer account only'], 401);
         }
 
         return response()->json(['message' => 'index']);
@@ -30,7 +30,7 @@ class MemberAuthController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
-            if ($user->role_id === 3 && $user->status_id === 2) {
+            if ($user->role_id === 5 && $user->status_id === 2) {
                 $token = $user->createToken('member_fithub_token')->plainTextToken;
 
                 $response = [
@@ -44,7 +44,7 @@ class MemberAuthController extends Controller
             }
 
             $request->user()->tokens()->where('id', $request->user()->currentAccessToken()->id)->delete();
-            return response()->json(['message' => 'Member account only'], 401);
+            return response()->json(['message' => 'Trainer account only'], 401);
         }
 
         return response()->json(['message' => 'Invalid credentials'], 401);
@@ -61,7 +61,7 @@ class MemberAuthController extends Controller
         ]);
 
         $user = new User();
-        $user->role_id = 3;
+        $user->role_id = 5;
         $user->status_id = 2;
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
@@ -84,11 +84,11 @@ class MemberAuthController extends Controller
     public function logout(Request $request){
         $user = Auth::user();
 
-        if ($user->role_id === 3) {
+        if ($user->role_id === 5) {
             $request->user()->tokens()->where('id', $request->user()->currentAccessToken()->id)->delete();
             return response()->json(['message' => 'Successfully logged out']);
         }
 
-        return response()->json(['message' => 'Member account only'], 401);
+        return response()->json(['message' => 'Trainer account only'], 401);
     }
 }

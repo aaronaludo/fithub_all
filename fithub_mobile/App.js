@@ -16,6 +16,17 @@ import MemberEmergency from "./src/screens/Member/Emergency";
 import MemberAddEmergency from "./src/screens/Member/AddEmergency";
 import MemberConnect from "./src/screens/Member/Connect";
 import MemberAddConnect from "./src/screens/Member/AddConnect";
+import MemberBMICalculator from "./src/screens/Member/BMICalculator";
+import MemberMembership from "./src/screens/Member/Membership";
+import MemberCheckout from "./src/screens/Member/Checkout";
+
+import TrainerTabNavigator from "./src/navigator/TrainerTabNavigator";
+import TrainerLogin from "./src/screens/Trainer/Login";
+import TrainerRegistration from "./src/screens/Trainer/Registration";
+import TrainerAccount from "./src/screens/Trainer/Account";
+import TrainerChangePassword from "./src/screens/Trainer/ChangePassword";
+import TrainerAccountInformation from "./src/screens/Trainer/AccountInformation";
+import TrainerBMICalculator from "./src/screens/Trainer/BMICalculator";
 
 const Stack = createStackNavigator();
 
@@ -23,11 +34,11 @@ function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Pick Role"
           component={PickRole}
           options={{ headerShown: false }}
-        /> */}
+        />
         {/* Member */}
         <Stack.Screen name="Member Login" component={MemberLogin} />
         <Stack.Screen
@@ -72,6 +83,42 @@ function AppNavigator() {
         <Stack.Screen
           name="Member Add Connect"
           component={MemberAddConnect}
+        />
+        <Stack.Screen
+          name="Member BMI Calculator"
+          component={MemberBMICalculator}
+        />
+        <Stack.Screen
+          name="Member Membership"
+          component={MemberMembership}
+        />
+        <Stack.Screen
+          name="Member Checkout"
+          component={MemberCheckout}
+        />
+        {/* Trainer */}
+        <Stack.Screen name="Trainer Login" component={TrainerLogin} />
+        <Stack.Screen
+          name="Trainer Tab Navigator"
+          component={TrainerTabNavigator}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Trainer Registration"
+          component={TrainerRegistration}
+        />
+        <Stack.Screen name="Trainer Account" component={TrainerAccount} />
+        <Stack.Screen
+          name="Trainer Change Password"
+          component={TrainerChangePassword}
+        />
+        <Stack.Screen
+          name="Trainer Account Information"
+          component={TrainerAccountInformation}
+        />
+        <Stack.Screen
+          name="Trainer BMI Calculator"
+          component={TrainerBMICalculator}
         />
       </Stack.Navigator>
     </NavigationContainer>

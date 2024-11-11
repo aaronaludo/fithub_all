@@ -53,5 +53,15 @@ class UsersTableSeeder extends Seeder
             'email' => 'superadmin@gmail.com',
             'password' => bcrypt('superadmin123')
         ]);
+        User::create([
+            'role_id' => 5,
+            'status_id' => 2,
+            'first_name' => 'Trainer',
+            'last_name' => 'Test',
+            'address' => 'San Mateo',
+            'phone_number' => '09557735510',
+            'email' => 'trainer@gmail.com',
+            'password' => bcrypt('trainer123')
+        ]);
     }
 }

@@ -25,5 +25,8 @@ class RolesTableSeeder extends Seeder
         Role::create([
             'name' => 'Super Admin',
         ]);
+        Role::create([
+            'name' => 'Trainer',
+        ]);
     }
 }

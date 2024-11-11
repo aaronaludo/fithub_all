@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('feedback', function (Blueprint $table) {
+        Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('title');
-            $table->text('description');
-            $table->integer('isadminread');
+            $table->unsignedBigInteger('user_id');
+            $table->string('type');
             $table->timestamps();
-        
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
-        });        
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('feedback');
+        Schema::dropIfExists('attendances');
     }
 };

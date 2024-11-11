@@ -17,11 +17,13 @@ class MembershipsTableSeeder extends Seeder
             'name' => 'Full Membership (1 Month)',
             'currency' => "PHP",
             'price' =>  "600",
+            'year' => 1,
         ]);
         Membership::create([
             'name' => 'Half Membership (1 Month)',
             'currency' => "PHP",
             'price' =>  "300",
-        ]);
+            'month' => 6
+        ]); 
     }
 }

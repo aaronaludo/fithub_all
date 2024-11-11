@@ -15,9 +15,9 @@ const Login = ({ navigation }) => {
   }, []);
 
   const checkToken = async () => {
-    const token = await AsyncStorage.getItem("MemberToken");
+    const token = await AsyncStorage.getItem("TrainerToken");
     if (token) {
-      navigation.navigate("Member Tab Navigator", { screen: "Dashboard" });
+      navigation.navigate("Trainer Tab Navigator", { screen: "Dashboard" });
     }
   };
 
@@ -25,7 +25,7 @@ const Login = ({ navigation }) => {
     setError("");
     try {
       const response = await axios.post(
-        `${config.API_URL}/api/members/login`,
+        `${config.API_URL}/api/trainers/login`,
         {
           email,
           password,
@@ -33,12 +33,12 @@ const Login = ({ navigation }) => {
       );
       const { token, user } = response.data.response;
 
-      await AsyncStorage.setItem("MemberToken", token);
-      await AsyncStorage.setItem("MemberData", JSON.stringify(user));
+      await AsyncStorage.setItem("TrainerToken", token);
+      await AsyncStorage.setItem("TrainerData", JSON.stringify(user));
 
       setEmail("");
       setPassword("");
-      navigation.navigate("Member Tab Navigator", { screen: "Dashboard" });
+      navigation.navigate("Trainer Tab Navigator", { screen: "Dashboard" });
     } catch (error) {
       setEmail("");
       setPassword("");
@@ -49,7 +49,7 @@ const Login = ({ navigation }) => {
   return (
     <>
       <View style={[styles.container, { flex: 1 }]}>
-        <Text style={styles.title}>Welcome Member!</Text>
+        <Text style={styles.title}>Welcome Trainer!</Text>
         <Text style={styles.description}>Login to continue.</Text>
         {error !== "" && (
           <Text style={[styles.description, { color: "red" }]}>{error}</Text>
@@ -74,18 +74,9 @@ const Login = ({ navigation }) => {
           Don't have an Account?{" "}
           <Text
             style={styles.subInputText}
-            onPress={() => navigation.navigate("Member Registration")}
+            onPress={() => navigation.navigate("Trainer Registration")}
           >
             Register
-          </Text>
-        </Text>
-        <Text style={styles.inputText}>
-          Don't have an Membership?{" "}
-          <Text
-            style={styles.subInputText}
-            onPress={() => navigation.navigate("Member Membership")}
-          >
-            Membership
           </Text>
         </Text>
       </View>
