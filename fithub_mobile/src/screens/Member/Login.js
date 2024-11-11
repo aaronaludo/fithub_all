@@ -79,15 +79,6 @@ const Login = ({ navigation }) => {
             Register
           </Text>
         </Text>
-        <Text style={styles.inputText}>
-          Don't have an Membership?{" "}
-          <Text
-            style={styles.subInputText}
-            onPress={() => navigation.navigate("Member Membership")}
-          >
-            Membership
-          </Text>
-        </Text>
       </View>
     </>
   );

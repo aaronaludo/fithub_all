@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-lg-12 d-flex justify-content-between">
                 <div><h2 class="title">Attendances</h2></div>
+                <div class="d-flex align-items-center"><a class="btn btn-danger" href="{{ route('admin.staff-account-management.attendances.scanner') }}"><i class="fa-solid fa-qrcode"></i>&nbsp;&nbsp;&nbsp;Scanner</a></div>
             </div>
             <div class="col-lg-12 mb-20">
                 <div class="box">
@@ -37,6 +38,7 @@
                                 <table class="table table-hover">
                                     <thead class="table-light">
                                         <th>ID</th>
+                                        <th>Role</th>
                                         <th>User</th>
                                         <th>Type</th>
                                         <th>Time</th>
@@ -46,6 +48,7 @@
                                         @foreach($data as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
+                                                <td>{{ $item->user->role->name }}</td>
                                                 <td>{{ $item->user->first_name }} {{ $item->user->last_name }}</td>
                                                 <td>{{ $item->type == "clockin" ? "Clock In" : "Clock Out"}}</td>
                                                 <td>{{ $item->created_at }}</td>
