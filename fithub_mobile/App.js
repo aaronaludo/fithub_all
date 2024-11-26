@@ -28,6 +28,12 @@ import TrainerChangePassword from "./src/screens/Trainer/ChangePassword";
 import TrainerAccountInformation from "./src/screens/Trainer/AccountInformation";
 import TrainerBMICalculator from "./src/screens/Trainer/BMICalculator";
 
+import TrainerAvailableSchedule from "./src/screens/Trainer/AvailableSchedule";
+import TrainerMealPlan from "./src/screens/Trainer/MealPlan";
+import TrainerNotification from "./src/screens/Trainer/Notification";
+import TrainerProgramManagement from "./src/screens/Trainer/ProgramManagement";
+import TrainerScheduleClasses from "./src/screens/Trainer/MyClasses";
+
 const Stack = createStackNavigator();
 
 function AppNavigator() {
@@ -120,6 +126,26 @@ function AppNavigator() {
           name="Trainer BMI Calculator"
           component={TrainerBMICalculator}
         />
+        <Stack.Screen
+          name="Trainer Available Schedule"
+          component={TrainerAvailableSchedule}
+        />
+        <Stack.Screen
+          name="Trainer Meal Plan"
+          component={TrainerMealPlan}
+        />
+        {/* <Stack.Screen
+          name="Trainer Notification"
+          component={TrainerNotification}
+        /> */}
+        <Stack.Screen
+          name="Trainer Program Management"
+          component={TrainerProgramManagement}
+        />
+        {/* <Stack.Screen
+          name="Trainer Schedule Classes"
+          component={TrainerScheduleClasses}
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

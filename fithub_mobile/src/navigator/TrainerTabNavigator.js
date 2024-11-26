@@ -4,6 +4,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Dashboard from "../screens/Trainer/Dashboard";
 import QrCode from "../screens/Trainer/QrCode";
 import { Feather } from "@expo/vector-icons";
+import TrainerNotification from "../screens/Trainer/Notification";
+import TrainerMyClasses from "../screens/Trainer/MyClasses";
 
 const Tab = createBottomTabNavigator();
 
@@ -51,12 +53,38 @@ export default function App({ navigation }) {
         }}
       />
       <Tab.Screen
+        name="My Classes"
+        component={TrainerMyClasses}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => (
+            <Feather
+              name="columns"
+              size={24}
+              color={focused ? "#dc3546" : "grey"}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
         name="Qr Code"
         component={QrCode}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <Feather
               name="code"
+              size={24}
+              color={focused ? "#dc3546" : "grey"}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Notification"
+        component={TrainerNotification}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => (
+            <Feather
+              name="bell"
               size={24}
               color={focused ? "#dc3546" : "grey"}
             />
